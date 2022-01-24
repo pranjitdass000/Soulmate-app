@@ -63,6 +63,11 @@ public class UserController {
             responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;}
+    @GetMapping("/users")
+    public ResponseEntity<List<UserProfile>> getAllUsers() throws Exception {
+        responseEntity = new ResponseEntity<List<UserProfile>>((List<UserProfile>) userService.getAllUsers(),HttpStatus.OK);
+        return responseEntity;
+    }
 
 //        @GetMapping("/getprofile")
 //    public ResponseEntity<List<UserProfile>>getAllUsers(){
